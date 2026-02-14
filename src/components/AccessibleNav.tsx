@@ -28,9 +28,6 @@ export function AccessibleNav() {
             className="flex items-center gap-3 font-bold text-lg text-blue-700 px-3 py-2 rounded-2xl glass hover-lift"
             aria-label="AccessEdu home"
           >
-            <span className="rounded-xl w-9 h-9 flex items-center justify-center text-sm font-bold shadow-sm" style={{ background: "linear-gradient(135deg, #1d4ed8, #38bdf8)" }} aria-hidden="true">
-              AE
-            </span>
             <span className="display-font tracking-tight">AccessEdu</span>
           </Link>
 
