@@ -19,33 +19,35 @@ export function AccessibleNav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav aria-label="Main navigation" className="sticky top-0 z-40 border-b border-slate-200/60 bg-white/75 backdrop-blur-xl shadow-[0_8px_30px_-20px_rgba(15,23,42,0.35)]">
+    <nav aria-label="Main navigation" className="sticky top-0 z-40 bg-white/80 backdrop-blur-2xl shadow-[0_18px_40px_-28px_rgba(15,23,42,0.45)]">
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent" aria-hidden="true" />
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-[72px]">
           <Link
             href="/"
-            className="flex items-center gap-2 font-bold text-lg text-blue-700"
+            className="flex items-center gap-3 font-bold text-lg text-blue-700 px-3 py-2 rounded-2xl glass hover-lift"
             aria-label="AccessEdu home"
           >
-            <span className="rounded-lg w-8 h-8 flex items-center justify-center text-sm font-bold shadow-sm" style={{ background: "linear-gradient(135deg, #1d4ed8, #38bdf8)" }} aria-hidden="true">
+            <span className="rounded-xl w-9 h-9 flex items-center justify-center text-sm font-bold shadow-sm" style={{ background: "linear-gradient(135deg, #1d4ed8, #38bdf8)" }} aria-hidden="true">
               AE
             </span>
-            AccessEdu
+            <span className="display-font tracking-tight">AccessEdu</span>
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-2 rounded-full border border-slate-200/60 bg-white/70 px-2 py-2 shadow-[0_12px_28px_-24px_rgba(15,23,42,0.6)]">
             {navItems.map(({ href, label, icon: Icon }) => {
               const isActive = pathname === href;
               return (
                 <Link
                   key={href}
                   href={href}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors min-h-[44px] ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all min-h-[44px] ${
                     isActive
-                      ? "bg-blue-50 text-blue-700"
-                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                      ? "text-white shadow-[0_12px_24px_-16px_rgba(29,78,216,0.8)]"
+                      : "text-slate-600 hover:bg-white hover:text-slate-900"
                   }`}
+                  style={isActive ? { background: "linear-gradient(135deg, #1d4ed8, #38bdf8)" } : undefined}
                   aria-current={isActive ? "page" : undefined}
                 >
                   <Icon size={18} aria-hidden="true" />
@@ -58,7 +60,7 @@ export function AccessibleNav() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-slate-100 min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className="md:hidden p-2 rounded-xl hover:bg-slate-100 min-h-[44px] min-w-[44px] flex items-center justify-center glass"
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
             aria-label={isOpen ? "Close menu" : "Open menu"}
