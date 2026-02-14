@@ -71,7 +71,7 @@ export function ADHDSummarizer() {
   return (
     <div className="space-y-8">
       {/* Mode toggle */}
-      <div className="flex items-center gap-5 p-6 rounded-2xl" style={{ background: '#BFDBFE' }}>
+      <div className="flex items-center gap-5 p-6 rounded-2xl glass">
         <label className="flex items-center gap-3 cursor-pointer" style={{ minHeight: '52px' }}>
           <input
             type="checkbox"
@@ -98,7 +98,7 @@ export function ADHDSummarizer() {
             value={apiKey}
             onChange={(e) => setApiKey(e.target.value)}
             placeholder="sk-..."
-            className="w-full px-5 py-4 border-2 rounded-2xl"
+            className="w-full px-5 py-4 border-2 rounded-2xl input-glass"
             style={{
               borderColor: '#cbd5e1',
               fontSize: '1rem',
@@ -118,7 +118,7 @@ export function ADHDSummarizer() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           rows={6}
-          className="w-full px-5 py-4 border-2 rounded-2xl resize-y"
+          className="w-full px-5 py-4 border-2 rounded-2xl resize-y input-glass"
           style={{
             borderColor: '#cbd5e1',
             fontSize: '1rem',
@@ -132,13 +132,7 @@ export function ADHDSummarizer() {
       <button
         onClick={handleSummarize}
         disabled={isLoading || (!text && !demoMode)}
-        className="w-full flex items-center justify-center gap-3 px-8 py-5 rounded-2xl disabled:opacity-50 disabled:cursor-not-allowed transition-all font-bold shadow-sm hover:shadow-md"
-        style={{
-          background: '#3B82F6',
-          color: 'white',
-          minHeight: '60px',
-          fontSize: '1.125rem',
-        }}
+        className="w-full flex items-center justify-center gap-3 px-8 py-5 rounded-2xl disabled:opacity-50 disabled:cursor-not-allowed transition-all font-bold min-h-[60px] text-lg btn-primary cta-ring hover-lift pressable"
       >
         {isLoading ? (
           <>
@@ -191,7 +185,7 @@ export function ADHDSummarizer() {
           {sections.map((section, index) => (
             <div
               key={index}
-              className="p-7 rounded-3xl border-3 transition-all cursor-pointer"
+              className="p-7 rounded-3xl border-3 transition-all cursor-pointer hover-lift pressable"
               style={{
                 background: completedSections.has(index) ? '#D1FAE5' : 'white',
                 borderWidth: '3px',

@@ -43,7 +43,7 @@ export function DyslexiaReader() {
   return (
     <div className="space-y-8">
       {/* Controls */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-7 rounded-3xl border-2" style={{ background: '#FEF3C7', borderColor: '#FDE68A' }}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-7 rounded-3xl border-2 glass">
         {/* Color overlay */}
         <fieldset>
           <legend className="font-semibold mb-3" style={{ color: '#0f172a', fontSize: '1rem' }}>Color Overlay</legend>
@@ -150,7 +150,7 @@ export function DyslexiaReader() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           rows={5}
-          className="w-full px-5 py-4 border-2 rounded-2xl resize-y"
+          className="w-full px-5 py-4 border-2 rounded-2xl resize-y input-glass"
           style={{
             borderColor: '#cbd5e1',
             fontSize: '1rem',
@@ -165,7 +165,7 @@ export function DyslexiaReader() {
       {/* Formatted output */}
       {text && (
         <div
-          className={`p-10 rounded-3xl border-2 ${overlayClass} ${fontSize} ${lineSpacing} ${
+          className={`p-10 rounded-3xl border-2 card-premium ${overlayClass} ${fontSize} ${lineSpacing} ${
             useDyslexicFont ? "font-dyslexic" : ""
           } ${letterSpacing ? "tracking-wide" : ""}`}
           style={{ borderColor: '#cbd5e1' }}

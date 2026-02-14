@@ -1,47 +1,71 @@
+import { AccessibilityPack } from "@/components/AccessibilityPack";
 import { ModeSelector } from "@/components/ModeSelector";
-import { Heart, Shield, Sparkles, Users } from "lucide-react";
+import { CheckCircle2, Settings, Sparkles } from "lucide-react";
 
 export default function Home() {
   return (
     <div style={{ background: '#FAFAF9' }}>
       {/* Hero */}
-      <section className="relative overflow-hidden text-slate-900" style={{ background: 'linear-gradient(135deg, #BFDBFE 0%, #D1FAE5 50%, #FEF3C7 100%)' }}>
+      <section className="relative overflow-hidden text-slate-900 mesh-bg noise-overlay" style={{ background: 'linear-gradient(135deg, rgba(191,219,254,0.95) 0%, rgba(209,250,229,0.95) 50%, rgba(254,243,199,0.95) 100%)' }}>
         <div className="absolute inset-0 opacity-20" aria-hidden="true">
-          <div className="absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl" style={{ background: '#93C5FD' }} />
-          <div className="absolute bottom-10 right-20 w-96 h-96 rounded-full blur-3xl" style={{ background: '#A7F3D0' }} />
+          <div className="absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl animate-drift" style={{ background: '#93C5FD' }} />
+          <div className="absolute bottom-10 right-20 w-96 h-96 rounded-full blur-3xl animate-drift" style={{ background: '#A7F3D0', animationDelay: '1.6s' }} />
         </div>
         <div className="relative max-w-6xl mx-auto px-6 py-24 sm:py-32">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-semibold mb-8" style={{ background: 'rgba(96, 165, 250, 0.15)', color: '#1e40af' }}>
+            <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-semibold mb-8 glass glow-border">
               <Sparkles size={20} aria-hidden="true" />
-              <span className="text-base">AI-Powered Accessibility</span>
+              <span className="text-base">Access Pack Studio</span>
             </div>
             <h1 className="font-bold tracking-tight leading-tight" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#0f172a' }}>
-              Education accessible
+              Turn any class material
               <br />
-              <span style={{ color: '#3B82F6' }}>for everyone</span>
+              <span style={{ color: '#1d4ed8' }}>into an accessible study pack</span>
             </h1>
             <p className="mt-8 leading-relaxed max-w-2xl" style={{ fontSize: '1.25rem', color: '#334155' }}>
-              AccessEdu uses AI to make educational content accessible to students with
-              visual impairments, hearing impairments, dyslexia, and ADHD.
+              One input delivers screen-reader alt text, live caption summaries,
+              dyslexia-friendly reading, and ADHD focus notes in seconds.
             </p>
             <div className="mt-10 flex flex-wrap gap-5">
               <a
-                href="#modes"
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 font-bold rounded-2xl transition-all shadow-sm hover:shadow-md"
-                style={{ background: '#3B82F6', color: 'white', minHeight: '56px', fontSize: '1.125rem' }}
+                href="#studio"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 font-bold rounded-2xl min-h-[56px] text-lg btn-primary cta-ring hover-lift pressable cta-pulse"
               >
-                Get Started
+                Build an Access Pack
               </a>
               <a
-                href="#impact"
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 font-semibold rounded-2xl transition-all"
-                style={{ background: 'rgba(96, 165, 250, 0.15)', color: '#1e40af', minHeight: '56px', fontSize: '1.125rem' }}
+                href="#modes"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 font-semibold rounded-2xl min-h-[56px] text-lg btn-secondary hover-lift pressable"
               >
-                Learn More
+                Explore Modes
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Access Pack studio */}
+      <section id="studio" className="py-20 border-b" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)', borderColor: '#e5e7eb' }}>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-widest" style={{ color: '#1d4ed8' }}>
+                Demo: instant multi-format pack
+              </p>
+              <h2 className="text-4xl font-bold mt-3" style={{ color: '#0f172a' }}>
+                Access Pack Studio
+              </h2>
+              <p className="mt-4 text-lg" style={{ color: '#475569' }}>
+                Generate a complete accessibility bundle from a single lesson. Then use the full tools below for
+                live AI and custom workflows.
+              </p>
+            </div>
+            <div className="rounded-2xl px-5 py-4 border-2 glass">
+              <p className="text-sm font-semibold" style={{ color: '#1d4ed8' }}>Coverage</p>
+              <p className="text-2xl font-bold" style={{ color: '#0f172a' }}>4 / 4 modes</p>
+            </div>
+          </div>
+          <AccessibilityPack />
         </div>
       </section>
 
@@ -49,26 +73,26 @@ export default function Home() {
       <section id="impact" className="py-20 border-b" style={{ background: 'white', borderColor: '#e5e7eb' }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
-            <div className="space-y-3">
+            <div className="space-y-3 p-6 rounded-3xl card-premium hover-lift">
               <div className="mx-auto w-16 h-16 rounded-2xl flex items-center justify-center" style={{ background: '#BFDBFE' }}>
-                <Users size={32} style={{ color: '#1e40af' }} aria-hidden="true" />
+                <Sparkles size={32} style={{ color: '#1e40af' }} aria-hidden="true" />
               </div>
-              <p className="text-4xl font-bold" style={{ color: '#0f172a' }}>240M+</p>
-              <p style={{ color: '#64748b', fontSize: '1rem' }}>Students with visual impairments globally</p>
+              <p className="text-4xl font-bold" style={{ color: '#0f172a' }}>4-in-1</p>
+              <p style={{ color: '#64748b', fontSize: '1rem' }}>Vision, hearing, dyslexia, ADHD outputs in a single flow</p>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-3 p-6 rounded-3xl card-premium hover-lift">
               <div className="mx-auto w-16 h-16 rounded-2xl flex items-center justify-center" style={{ background: '#D1FAE5' }}>
-                <Heart size={32} style={{ color: '#047857' }} aria-hidden="true" />
+                <Settings size={32} style={{ color: '#047857' }} aria-hidden="true" />
               </div>
-              <p className="text-4xl font-bold" style={{ color: '#0f172a' }}>15-20%</p>
-              <p style={{ color: '#64748b', fontSize: '1rem' }}>Of the population has dyslexia</p>
+              <p className="text-4xl font-bold" style={{ color: '#0f172a' }}>Personalized</p>
+              <p style={{ color: '#64748b', fontSize: '1rem' }}>Settings apply across every mode and persist locally</p>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-3 p-6 rounded-3xl card-premium hover-lift">
               <div className="mx-auto w-16 h-16 rounded-2xl flex items-center justify-center" style={{ background: '#FEF3C7' }}>
-                <Shield size={32} style={{ color: '#b45309' }} aria-hidden="true" />
+                <CheckCircle2 size={32} style={{ color: '#b45309' }} aria-hidden="true" />
               </div>
-              <p className="text-4xl font-bold" style={{ color: '#0f172a' }}>WCAG AAA</p>
-              <p style={{ color: '#64748b', fontSize: '1rem' }}>Accessibility compliance standard</p>
+              <p className="text-4xl font-bold" style={{ color: '#0f172a' }}>Accessible</p>
+              <p style={{ color: '#64748b', fontSize: '1rem' }}>Keyboard-first, screen-reader labels, and large targets</p>
             </div>
           </div>
         </div>
@@ -93,31 +117,31 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-16" style={{ color: '#0f172a' }}>How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div className="text-center space-y-4">
+            <div className="text-center space-y-4 p-6 rounded-3xl card-premium hover-lift">
               <div className="mx-auto w-20 h-20 rounded-3xl flex items-center justify-center text-3xl font-bold" style={{ background: '#BFDBFE', color: '#1e40af' }}>
                 1
               </div>
-              <h3 className="font-bold text-xl" style={{ color: '#0f172a' }}>Choose a Mode</h3>
+              <h3 className="font-bold text-xl" style={{ color: '#0f172a' }}>Paste a Lesson</h3>
               <p style={{ color: '#64748b', fontSize: '1rem', lineHeight: '1.6' }}>
-                Select the accessibility tool that matches your learning needs
+                Drop in class notes, slides, or a lecture transcript
               </p>
             </div>
-            <div className="text-center space-y-4">
+            <div className="text-center space-y-4 p-6 rounded-3xl card-premium hover-lift">
               <div className="mx-auto w-20 h-20 rounded-3xl flex items-center justify-center text-3xl font-bold" style={{ background: '#D1FAE5', color: '#047857' }}>
                 2
               </div>
-              <h3 className="font-bold text-xl" style={{ color: '#0f172a' }}>Upload Content</h3>
+              <h3 className="font-bold text-xl" style={{ color: '#0f172a' }}>Generate the Pack</h3>
               <p style={{ color: '#64748b', fontSize: '1rem', lineHeight: '1.6' }}>
-                Upload images, record lectures, or paste text for processing
+                AccessEdu creates four accessibility formats at once
               </p>
             </div>
-            <div className="text-center space-y-4">
+            <div className="text-center space-y-4 p-6 rounded-3xl card-premium hover-lift">
               <div className="mx-auto w-20 h-20 rounded-3xl flex items-center justify-center text-3xl font-bold" style={{ background: '#FEF3C7', color: '#b45309' }}>
                 3
               </div>
-              <h3 className="font-bold text-xl" style={{ color: '#0f172a' }}>Get Accessible Output</h3>
+              <h3 className="font-bold text-xl" style={{ color: '#0f172a' }}>Study in Your Mode</h3>
               <p style={{ color: '#64748b', fontSize: '1rem', lineHeight: '1.6' }}>
-                AI transforms your content into an accessible format instantly
+                Use each tool separately or keep the full pack together
               </p>
             </div>
           </div>

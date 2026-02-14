@@ -19,15 +19,15 @@ export function AccessibleNav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav aria-label="Main navigation" className="bg-white border-b border-slate-200 sticky top-0 z-40">
+    <nav aria-label="Main navigation" className="sticky top-0 z-40 border-b border-slate-200/60 bg-white/75 backdrop-blur-xl shadow-[0_8px_30px_-20px_rgba(15,23,42,0.35)]">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link
             href="/"
-            className="flex items-center gap-2 font-bold text-lg text-blue-600"
+            className="flex items-center gap-2 font-bold text-lg text-blue-700"
             aria-label="AccessEdu home"
           >
-            <span className="bg-blue-600 text-white rounded-lg w-8 h-8 flex items-center justify-center text-sm font-bold" aria-hidden="true">
+            <span className="rounded-lg w-8 h-8 flex items-center justify-center text-sm font-bold shadow-sm" style={{ background: "linear-gradient(135deg, #1d4ed8, #38bdf8)" }} aria-hidden="true">
               AE
             </span>
             AccessEdu
@@ -69,7 +69,7 @@ export function AccessibleNav() {
 
         {/* Mobile nav */}
         {isOpen && (
-          <div id="mobile-menu" className="md:hidden pb-4 animate-fade-in" role="menu">
+          <div id="mobile-menu" className="md:hidden pb-4 mt-3 animate-fade-in glass rounded-2xl p-3" role="menu">
             {navItems.map(({ href, label, icon: Icon }) => {
               const isActive = pathname === href;
               return (

@@ -81,7 +81,7 @@ export function AudioCaptioner() {
   return (
     <div className="space-y-6">
       {/* Mode toggle */}
-      <div className="flex items-center gap-4 p-4 bg-purple-50 rounded-xl">
+      <div className="flex items-center gap-4 p-4 rounded-xl glass">
         <label className="flex items-center gap-2 cursor-pointer min-h-[44px]">
           <input
             type="checkbox"
@@ -107,7 +107,7 @@ export function AudioCaptioner() {
             value={apiKey}
             onChange={(e) => setApiKey(e.target.value)}
             placeholder="sk-..."
-            className="w-full px-4 py-3 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 min-h-[44px]"
+            className="w-full px-4 py-3 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 min-h-[44px] input-glass"
           />
         </div>
       )}
@@ -125,7 +125,7 @@ export function AudioCaptioner() {
         <button
           onClick={isRecording ? stopRecording : startRecording}
           disabled={!supported}
-          className={`flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium transition-colors min-h-[44px] flex-1 ${
+          className={`flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium transition-colors min-h-[44px] flex-1 hover-lift pressable shadow-[0_12px_24px_-18px_rgba(88,28,135,0.6)] ${
             isRecording
               ? "bg-red-500 text-white hover:bg-red-600"
               : "bg-purple-600 text-white hover:bg-purple-700 disabled:opacity-50"
@@ -178,17 +178,17 @@ export function AudioCaptioner() {
           onChange={(e) => setTranscript(e.target.value)}
           placeholder="Your lecture transcript will appear here as you speak, or paste text manually..."
           rows={6}
-          className="w-full px-4 py-3 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 resize-y"
+          className="w-full px-4 py-3 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 resize-y input-glass"
           aria-label="Lecture transcript"
         />
       </div>
 
       {/* Summarize button */}
-      <button
-        onClick={handleSummarize}
-        disabled={isLoading || (!transcript && !demoMode)}
-        className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-xl hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors min-h-[44px] font-medium"
-      >
+        <button
+          onClick={handleSummarize}
+          disabled={isLoading || (!transcript && !demoMode)}
+          className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-xl hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors min-h-[44px] font-medium hover-lift pressable shadow-[0_12px_24px_-18px_rgba(88,28,135,0.6)]"
+        >
         {isLoading ? (
           <>
             <Loader2 size={20} className="animate-spin" />
@@ -216,7 +216,7 @@ export function AudioCaptioner() {
             <TextToSpeech text={summary} label="Read summary" />
           </div>
           <div
-            className="p-6 bg-white border border-slate-200 rounded-2xl markdown-content"
+            className="p-6 rounded-2xl markdown-content card-premium glow-border"
             role="region"
             aria-label="Generated lecture summary"
             aria-live="polite"

@@ -62,7 +62,7 @@ export function ModeSelector() {
           <Link
             key={href}
             href={href}
-            className="group block p-8 rounded-3xl border-3 transition-all duration-200 hover:shadow-xl"
+            className="group block p-8 rounded-3xl border-3 hover-lift pressable transition-all duration-300"
             style={{
               background: bgColor,
               borderWidth: '3px',
@@ -77,11 +77,11 @@ export function ModeSelector() {
             }}
           >
             <div className="flex items-start gap-5">
-              <div className="p-4 rounded-2xl flex-shrink-0" style={{ background: iconBg }}>
+              <div className="p-4 rounded-2xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" style={{ background: iconBg }}>
                 <Icon size={36} aria-hidden="true" style={{ color: iconColor }} />
               </div>
               <div className="flex-1">
-                <span className="inline-block font-bold uppercase tracking-wider mb-2" style={{ fontSize: '0.75rem', color: '#64748b' }}>
+                <span className="tag-pill text-[0.7rem] mb-2" style={{ color: '#64748b' }}>
                   {tag}
                 </span>
                 <h3 className="font-bold mb-2" style={{ fontSize: '1.375rem', color: '#0f172a' }}>

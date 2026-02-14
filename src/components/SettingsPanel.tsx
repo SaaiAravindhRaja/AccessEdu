@@ -155,7 +155,7 @@ export function SettingsPanel() {
       <div className="space-y-4">
         <h3 className="text-lg font-semibold text-slate-800">Accessibility Options</h3>
 
-        <label className="flex items-center gap-3 cursor-pointer p-4 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 min-h-[44px]">
+        <label className="flex items-center gap-3 cursor-pointer p-4 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 min-h-[44px] card-premium hover-lift">
           <input
             type="checkbox"
             checked={settings.highContrast}
@@ -168,7 +168,7 @@ export function SettingsPanel() {
           </div>
         </label>
 
-        <label className="flex items-center gap-3 cursor-pointer p-4 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 min-h-[44px]">
+        <label className="flex items-center gap-3 cursor-pointer p-4 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 min-h-[44px] card-premium hover-lift">
           <input
             type="checkbox"
             checked={settings.reducedMotion}
@@ -181,7 +181,7 @@ export function SettingsPanel() {
           </div>
         </label>
 
-        <label className="flex items-center gap-3 cursor-pointer p-4 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 min-h-[44px]">
+        <label className="flex items-center gap-3 cursor-pointer p-4 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 min-h-[44px] card-premium hover-lift">
           <input
             type="checkbox"
             checked={settings.dyslexiaFont}
@@ -199,14 +199,14 @@ export function SettingsPanel() {
       <div className="flex flex-col sm:flex-row gap-3 pt-4">
         <button
           onClick={handleSave}
-          className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors min-h-[44px] font-medium flex-1"
+          className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl min-h-[44px] font-medium flex-1 btn-primary hover-lift pressable"
         >
           <Save size={18} />
           {saved ? "Saved!" : "Save Settings"}
         </button>
         <button
           onClick={handleReset}
-          className="flex items-center justify-center gap-2 px-6 py-3 border border-slate-300 text-slate-600 rounded-xl hover:bg-slate-50 transition-colors min-h-[44px] font-medium"
+          className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl min-h-[44px] font-medium btn-secondary hover-lift pressable"
         >
           <RotateCcw size={18} />
           Reset to Defaults

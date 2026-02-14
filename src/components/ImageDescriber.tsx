@@ -69,7 +69,7 @@ export function ImageDescriber() {
   return (
     <div className="space-y-6">
       {/* Mode toggle */}
-      <div className="flex items-center gap-4 p-4 bg-blue-50 rounded-xl">
+      <div className="flex items-center gap-4 p-4 rounded-xl glass">
         <label className="flex items-center gap-2 cursor-pointer min-h-[44px]">
           <input
             type="checkbox"
@@ -95,14 +95,14 @@ export function ImageDescriber() {
             value={apiKey}
             onChange={(e) => setApiKey(e.target.value)}
             placeholder="sk-..."
-            className="w-full px-4 py-3 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-h-[44px]"
+            className="w-full px-4 py-3 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-h-[44px] input-glass"
           />
         </div>
       )}
 
       {/* Upload area */}
       <div
-        className="border-2 border-dashed border-slate-300 rounded-2xl p-8 text-center hover:border-blue-400 transition-colors cursor-pointer"
+        className="border-2 border-dashed border-slate-300 rounded-2xl p-8 text-center hover:border-blue-400 transition-colors cursor-pointer hover-lift glass-dashed"
         onClick={() => fileInputRef.current?.click()}
         onKeyDown={(e) => e.key === "Enter" && fileInputRef.current?.click()}
         role="button"
@@ -141,7 +141,7 @@ export function ImageDescriber() {
       <button
         onClick={handleDescribe}
         disabled={isLoading || (!image && !demoMode)}
-        className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors min-h-[44px] font-medium"
+        className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] font-medium btn-primary hover-lift pressable"
         aria-label={demoMode ? "Generate demo description" : "Describe image using AI"}
       >
         {isLoading ? (
@@ -171,7 +171,7 @@ export function ImageDescriber() {
             <TextToSpeech text={description} label="Read description" />
           </div>
           <div
-            className="prose prose-slate max-w-none p-6 bg-white border border-slate-200 rounded-2xl markdown-content"
+            className="prose prose-slate max-w-none p-6 rounded-2xl markdown-content card-premium glow-border"
             role="region"
             aria-label="Generated image description"
             aria-live="polite"

@@ -21,6 +21,7 @@ const DEFAULT_SETTINGS: AccessibilitySettings = {
 };
 
 const STORAGE_KEY = "accessedu-settings";
+export const SETTINGS_EVENT = "accessedu-settings";
 
 export function getSettings(): AccessibilitySettings {
   if (typeof window === "undefined") return DEFAULT_SETTINGS;
@@ -34,6 +35,7 @@ export function getSettings(): AccessibilitySettings {
 export function saveSettings(settings: AccessibilitySettings): void {
   if (typeof window === "undefined") return;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+  window.dispatchEvent(new Event(SETTINGS_EVENT));
 }
 
 export function getFontSizeClass(size: AccessibilitySettings["fontSize"]): string {
